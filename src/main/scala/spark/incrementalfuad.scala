@@ -1,7 +1,7 @@
 package spark
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.{SaveMode, SparkSession}
-object incrementalfuad {
+object incrementalFuad {
   def main(args: Array[String]): Unit = {
     val url = "jdbc:postgresql://ec2-13-40-49-105.eu-west-2.compute.amazonaws.com:5432/testdb"
     val properties = new java.util.Properties()
@@ -13,7 +13,7 @@ object incrementalfuad {
 
     val spark = SparkSession.builder().appName("JDBCExample").getOrCreate()
     // *****************************************************************************************************
-    // Ethereum Incremental//
+    // Ethereum Incremental
     // *****************************************************************************************************
 
     val max_df_ethereum = spark.sql("select max(ethereum_id) from scalagroup.ethereum_initialdataframe7").first()

@@ -1,7 +1,7 @@
 package spark
 
 import org.apache.spark.sql.{SaveMode, SparkSession}
-object dryrunfuad {
+object dryrunFuad {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder()
@@ -57,7 +57,7 @@ object dryrunfuad {
     // *****************************************************************************************************
     // Bitcoin table Transformations
     println("Bitcoin Initial DataFrame")
-    val df_bitcoin = spark.read.jdbc(url, "bitcoin7", properties)
+    val df_bitcoin = spark.read.jdbc(url, "bitcoin", properties)
     df_bitcoin.show(false)
     // Create Hive Internal table
     df_bitcoin.write.mode(SaveMode.Overwrite).saveAsTable("scalagroup.bitcoin_initialdataframe7")
@@ -78,7 +78,7 @@ object dryrunfuad {
     // Create Hive Internal table
     sorted_df_bitcoin.write.mode(SaveMode.Overwrite).saveAsTable("scalagroup.bitcoin_sortedbykeybyprice7")
 
-    // ******************************************************************************************************
+    // *****************************************************************************************************
     println("Drop the bitcoin_NULL column and Add a new column bitcoin_mean_price")
     val dropped_bitcoin_null_column = df_bitcoin.drop("bitcoin_NULL")
     // Compute the bitcoin_mean_price of the "bitcoin_price" column
