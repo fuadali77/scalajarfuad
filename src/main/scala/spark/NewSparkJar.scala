@@ -14,3 +14,5 @@ object NewSparkJar {
     println(rdd.collect().foreach(print))
   }
 }
+
+// spark-submit --master local --class spark.NewSparkJar scala_jar_sergiu-1.0-SNAPSHOT-jar-with-dependencies.jar
